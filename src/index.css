@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-body: #f4f4f0;
+  --bg-card: #ffffff;
+  --text-main: #000000;
+  --text-muted: #6b7280;
+  --border-main: #000000;
+  --brand-yellow: #F0FE00;
+  --brand-blue: #00235B;
+  --brand-green: #007A2E;
+  --brand-red: #C8102E;
+  --shadow-color: #000000;
+  --grid-pattern: #000000;
+  --inv-bg: #000000;
+  --inv-text: #ffffff;
+  --on-color: #ffffff;
+}
+
+.dark {
+  --bg-body: #1a1a1a;
+  --bg-card: #262626;
+  --text-main: #F5F5F0;
+  --text-muted: #9CA3AF;
+  --border-main: #000000;
+  --brand-yellow: #DDF000;
+  --brand-blue: #4A89DF;
+  --brand-green: #4EAD5B;
+  --brand-red: #E84D4D;
+  --shadow-color: #000000;
+  --grid-pattern: #000000;
+  --inv-bg: #F5F5F0;
+  --inv-text: #000000;
+  --on-color: #000000;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  background-image: radial-gradient(var(--grid-pattern) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: -19px -19px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+@media (min-width: 768px) { ::-webkit-scrollbar { width: 12px; height: 12px; } }
+::-webkit-scrollbar-track { background: var(--bg-card); border-left: 2px solid var(--border-main); }
+@media (min-width: 768px) { ::-webkit-scrollbar-track { border-left: 4px solid var(--border-main); } }
+::-webkit-scrollbar-thumb { background: var(--brand-yellow); border: 2px solid var(--border-main); }
+@media (min-width: 768px) { ::-webkit-scrollbar-thumb { border: 4px solid var(--border-main); } }
+::-webkit-scrollbar-thumb:hover { background: var(--text-main); }
+
+/* Neo-brutalist utilities */
+@layer components {
+  .neo-shadow {
+    box-shadow: 4px 4px 0 0 var(--shadow-color);
+    transition: background-color 0.3s;
+  }
+  .neo-shadow-sm {
+    box-shadow: 2px 2px 0 0 var(--shadow-color);
+    transition: background-color 0.3s;
+  }
+  .neo-button {
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .neo-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 0 var(--shadow-color);
+  }
+  .neo-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 0 var(--shadow-color);
+  }
+}
+
+@media (min-width: 768px) {
+  .neo-shadow { box-shadow: 6px 6px 0 0 var(--shadow-color); }
+  .neo-shadow-sm { box-shadow: 4px 4px 0 0 var(--shadow-color); }
+  .neo-button:hover { box-shadow: 4px 4px 0 0 var(--shadow-color); }
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-toast { animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
