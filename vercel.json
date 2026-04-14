@@ -4,9 +4,5 @@
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index" },
     { "source": "/health", "destination": "/api/index" }
-  ],
-  "env": {
-    "DATABASE_URL": "@database-url",
-    "DATA_SOURCE_URL": "@data-source-url"
-  }
+  ]
 }
